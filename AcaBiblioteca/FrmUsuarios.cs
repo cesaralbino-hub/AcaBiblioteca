@@ -14,5 +14,10 @@ namespace AcaBiblioteca
         {
             InitializeComponent();
         }
+
+        private void txtTelefono_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
