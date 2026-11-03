@@ -1,0 +1,21 @@
+# Visual Studio
+.vs/
+**/bin/
+**/obj/
+
+# Configuraciones personales
+*.user
+*.suo
+*.rsuser
+
+# Archivos temporales
+*.tmp
+*.log
+
+# Bases de datos locales
+*.mdf
+*.ldf
+
+# Archivos de configuracion sensibles
+.env
+.env.*
