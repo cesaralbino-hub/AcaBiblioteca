@@ -52,17 +52,19 @@
             pnlEncabezado.Controls.Add(lblTitulo);
             pnlEncabezado.Dock = DockStyle.Top;
             pnlEncabezado.Location = new Point(0, 0);
+            pnlEncabezado.Margin = new Padding(2, 2, 2, 2);
             pnlEncabezado.Name = "pnlEncabezado";
-            pnlEncabezado.Size = new Size(778, 60);
+            pnlEncabezado.Size = new Size(800, 36);
             pnlEncabezado.TabIndex = 0;
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(28, 15);
+            lblTitulo.Location = new Point(20, 9);
+            lblTitulo.Margin = new Padding(2, 0, 2, 0);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(413, 45);
+            lblTitulo.Size = new Size(282, 30);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "GESTION DE EDITORIALES";
             // 
@@ -72,27 +74,30 @@
             pnlDatos.Controls.Add(txtNombre);
             pnlDatos.Controls.Add(lblNombre);
             pnlDatos.Dock = DockStyle.Top;
-            pnlDatos.Location = new Point(0, 60);
+            pnlDatos.Location = new Point(0, 36);
+            pnlDatos.Margin = new Padding(2, 2, 2, 2);
             pnlDatos.Name = "pnlDatos";
-            pnlDatos.Size = new Size(778, 85);
+            pnlDatos.Size = new Size(800, 52);
             pnlDatos.TabIndex = 1;
             // 
             // txtNombre
             // 
             txtNombre.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtNombre.Location = new Point(25, 38);
+            txtNombre.Location = new Point(18, 23);
+            txtNombre.Margin = new Padding(2, 2, 2, 2);
             txtNombre.MaxLength = 100;
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(500, 37);
+            txtNombre.Size = new Size(351, 27);
             txtNombre.TabIndex = 0;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(25, 9);
+            lblNombre.Location = new Point(18, 5);
+            lblNombre.Margin = new Padding(2, 0, 2, 0);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(175, 28);
+            lblNombre.Size = new Size(125, 19);
             lblNombre.TabIndex = 0;
             lblNombre.Text = "Nombre Editorial";
             // 
@@ -105,17 +110,19 @@
             pnlBotones.Controls.Add(btnGuardar);
             pnlBotones.Controls.Add(btnNuevo);
             pnlBotones.Dock = DockStyle.Top;
-            pnlBotones.Location = new Point(0, 145);
+            pnlBotones.Location = new Point(0, 88);
+            pnlBotones.Margin = new Padding(2, 2, 2, 2);
             pnlBotones.Name = "pnlBotones";
-            pnlBotones.Size = new Size(778, 65);
+            pnlBotones.Size = new Size(800, 65);
             pnlBotones.TabIndex = 2;
             // 
             // btnCancelar
             // 
             btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(531, 15);
+            btnCancelar.Location = new Point(520, 15);
+            btnCancelar.Margin = new Padding(2, 2, 2, 2);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(125, 35);
+            btnCancelar.Size = new Size(110, 35);
             btnCancelar.TabIndex = 5;
             btnCancelar.Text = "CANCELAR";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -125,8 +132,9 @@
             // 
             btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.Location = new Point(395, 15);
+            btnEliminar.Margin = new Padding(2, 2, 2, 2);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(130, 35);
+            btnEliminar.Size = new Size(110, 35);
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "ELIMINAR";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -136,6 +144,7 @@
             // 
             btnEditar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.Location = new Point(270, 15);
+            btnEditar.Margin = new Padding(2, 2, 2, 2);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(110, 35);
             btnEditar.TabIndex = 3;
@@ -147,8 +156,9 @@
             // 
             btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.Location = new Point(145, 15);
+            btnGuardar.Margin = new Padding(2, 2, 2, 2);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(122, 35);
+            btnGuardar.Size = new Size(110, 35);
             btnGuardar.TabIndex = 2;
             btnGuardar.Text = "GUARDAR";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -158,6 +168,7 @@
             // 
             btnNuevo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevo.Location = new Point(20, 15);
+            btnNuevo.Margin = new Padding(2, 2, 2, 2);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(110, 35);
             btnNuevo.TabIndex = 1;
@@ -174,28 +185,30 @@
             dgvEditoriales.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvEditoriales.Dock = DockStyle.Fill;
             dgvEditoriales.EnableHeadersVisualStyles = false;
-            dgvEditoriales.Location = new Point(0, 210);
+            dgvEditoriales.Location = new Point(0, 153);
+            dgvEditoriales.Margin = new Padding(2, 2, 2, 2);
             dgvEditoriales.MultiSelect = false;
             dgvEditoriales.Name = "dgvEditoriales";
             dgvEditoriales.ReadOnly = true;
             dgvEditoriales.RowHeadersVisible = false;
             dgvEditoriales.RowHeadersWidth = 62;
             dgvEditoriales.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvEditoriales.Size = new Size(778, 184);
+            dgvEditoriales.Size = new Size(800, 297);
             dgvEditoriales.TabIndex = 6;
             dgvEditoriales.CellDoubleClick += dgvEditoriales_CellDoubleClick;
             // 
             // FrmEditoriales
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(778, 394);
+            ClientSize = new Size(800, 450);
             Controls.Add(dgvEditoriales);
             Controls.Add(pnlBotones);
             Controls.Add(pnlDatos);
             Controls.Add(pnlEncabezado);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(2, 2, 2, 2);
             Name = "FrmEditoriales";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "FrmEditoriales";

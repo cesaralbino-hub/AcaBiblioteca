@@ -273,9 +273,10 @@
             PnlBotones.Controls.Add(btnEditar);
             PnlBotones.Controls.Add(btnGuardar);
             PnlBotones.Controls.Add(btnNuevo);
-            PnlBotones.Location = new Point(82, 371);
+            PnlBotones.Dock = DockStyle.Top;
+            PnlBotones.Location = new Point(0, 365);
             PnlBotones.Name = "PnlBotones";
-            PnlBotones.Size = new Size(715, 53);
+            PnlBotones.Size = new Size(1350, 53);
             PnlBotones.TabIndex = 3;
             // 
             // btnCancelar
@@ -284,7 +285,7 @@
             btnCancelar.IconColor = Color.Black;
             btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCancelar.IconSize = 25;
-            btnCancelar.Location = new Point(539, 9);
+            btnCancelar.Location = new Point(622, 11);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(125, 29);
             btnCancelar.TabIndex = 4;
@@ -300,7 +301,7 @@
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 25;
-            btnEliminar.Location = new Point(408, 9);
+            btnEliminar.Location = new Point(491, 11);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(125, 29);
             btnEliminar.TabIndex = 3;
@@ -316,7 +317,7 @@
             btnEditar.IconColor = Color.Black;
             btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEditar.IconSize = 25;
-            btnEditar.Location = new Point(277, 9);
+            btnEditar.Location = new Point(360, 11);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(125, 29);
             btnEditar.TabIndex = 2;
@@ -332,7 +333,7 @@
             btnGuardar.IconColor = Color.Black;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnGuardar.IconSize = 25;
-            btnGuardar.Location = new Point(146, 9);
+            btnGuardar.Location = new Point(229, 11);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(125, 29);
             btnGuardar.TabIndex = 1;
@@ -348,7 +349,7 @@
             btnNuevo.IconColor = Color.Black;
             btnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnNuevo.IconSize = 25;
-            btnNuevo.Location = new Point(17, 9);
+            btnNuevo.Location = new Point(100, 11);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(124, 29);
             btnNuevo.TabIndex = 0;
@@ -360,11 +361,21 @@
             // 
             // dgvLibros
             // 
-            dgvLibros.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvLibros.AllowUserToAddRows = false;
+            dgvLibros.AllowUserToDeleteRows = false;
+            dgvLibros.AllowUserToResizeColumns = false;
+            dgvLibros.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvLibros.BackgroundColor = Color.White;
             dgvLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvLibros.Location = new Point(0, 430);
+            dgvLibros.Dock = DockStyle.Fill;
+            dgvLibros.EnableHeadersVisualStyles = false;
+            dgvLibros.Location = new Point(0, 418);
+            dgvLibros.MultiSelect = false;
             dgvLibros.Name = "dgvLibros";
-            dgvLibros.Size = new Size(1100, 309);
+            dgvLibros.ReadOnly = true;
+            dgvLibros.RowHeadersVisible = false;
+            dgvLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvLibros.Size = new Size(1350, 324);
             dgvLibros.TabIndex = 4;
             dgvLibros.CellClick += dgvLibros_CellClick;
             // 
