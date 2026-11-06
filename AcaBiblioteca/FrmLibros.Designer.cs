@@ -77,10 +77,10 @@
             // 
             LblTitulo.AutoSize = true;
             LblTitulo.BackColor = Color.Transparent;
-            LblTitulo.Font = new Font("Segoe UI", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LblTitulo.Location = new Point(277, 21);
             LblTitulo.Name = "LblTitulo";
-            LblTitulo.Size = new Size(292, 40);
+            LblTitulo.Size = new Size(243, 32);
             LblTitulo.TabIndex = 0;
             LblTitulo.Text = "GESTION DE LIBROS";
             // 

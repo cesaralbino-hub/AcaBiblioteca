@@ -8,23 +8,24 @@ namespace AcaBiblioteca
         public FrmPrincipal()
         {
             InitializeComponent();
-              //  Conexion conexion = new Conexion(); 
+            //  Conexion conexion = new Conexion(); 
             //    try 
             //{
-            //    using (var conn = conexion.obtenerConexion())
-            //    { conn.Open(); 
-            //        MessageBox.Show("Conexión establecida con exito.", "AcaBiblioteca",
-            //            MessageBoxButtons.OK, 
-            //            MessageBoxIcon.Information); 
-            //    } 
+            //using (var conn = conexion.obtenerConexion())
+            //{
+            //    conn.Open();
+                //        MessageBox.Show("Conexión establecida con exito.", "AcaBiblioteca",
+                //            MessageBoxButtons.OK, 
+                //            MessageBoxIcon.Information); 
+                //    } 
 
-            //} 
-            //catch (Exception ex) { MessageBox.Show("Error de conexión:\n" + ex.Message, "AcaBiblioteca",
-            //    MessageBoxButtons.OK, 
-            //    MessageBoxIcon.Error); }
+                //} 
+                //catch (Exception ex) { MessageBox.Show("Error de conexión:\n" + ex.Message, "AcaBiblioteca",
+                //    MessageBoxButtons.OK, 
+                //    MessageBoxIcon.Error); }
 
 
-            abrir_formulario(new FrmInicio());
+                abrir_formulario(new FrmInicio());
         }
 
         private void Form1_Load(object sender, EventArgs e)

@@ -28,12 +28,164 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FrmReportes";
+            pnlEncabezado = new Panel();
+            lblTitulo = new Label();
+            pnlFiltros = new Panel();
+            lblTipoReporte = new Label();
+            cmbTipoReporte = new ComboBox();
+            pnlBotones = new Panel();
+            btnGenerar = new Button();
+            btnLimpiar = new Button();
+            dgvReportes = new DataGridView();
+            pnlEncabezado.SuspendLayout();
+            pnlFiltros.SuspendLayout();
+            pnlBotones.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvReportes).BeginInit();
+            SuspendLayout();
+            // 
+            // pnlEncabezado
+            // 
+            pnlEncabezado.BackColor = Color.OliveDrab;
+            pnlEncabezado.Controls.Add(lblTitulo);
+            pnlEncabezado.Dock = DockStyle.Top;
+            pnlEncabezado.Location = new Point(0, 0);
+            pnlEncabezado.Margin = new Padding(2);
+            pnlEncabezado.Name = "pnlEncabezado";
+            pnlEncabezado.Size = new Size(784, 55);
+            pnlEncabezado.TabIndex = 0;
+            // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTitulo.ForeColor = Color.Black;
+            lblTitulo.Location = new Point(25, 12);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(279, 32);
+            lblTitulo.TabIndex = 0;
+            lblTitulo.Text = "GESTIÓN DE REPORTES";
+            // 
+            // pnlFiltros
+            // 
+            pnlFiltros.BorderStyle = BorderStyle.FixedSingle;
+            pnlFiltros.Controls.Add(cmbTipoReporte);
+            pnlFiltros.Controls.Add(lblTipoReporte);
+            pnlFiltros.Dock = DockStyle.Top;
+            pnlFiltros.Location = new Point(0, 55);
+            pnlFiltros.Name = "pnlFiltros";
+            pnlFiltros.Size = new Size(784, 90);
+            pnlFiltros.TabIndex = 1;
+            // 
+            // lblTipoReporte
+            // 
+            lblTipoReporte.AutoSize = true;
+            lblTipoReporte.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTipoReporte.Location = new Point(25, 12);
+            lblTipoReporte.Name = "lblTipoReporte";
+            lblTipoReporte.Size = new Size(111, 17);
+            lblTipoReporte.TabIndex = 0;
+            lblTipoReporte.Text = "Tipo de Reporte:";
+            // 
+            // cmbTipoReporte
+            // 
+            cmbTipoReporte.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbTipoReporte.FormattingEnabled = true;
+            cmbTipoReporte.Location = new Point(25, 38);
+            cmbTipoReporte.Name = "cmbTipoReporte";
+            cmbTipoReporte.Size = new Size(350, 25);
+            cmbTipoReporte.TabIndex = 0;
+            // 
+            // pnlBotones
+            // 
+            pnlBotones.BorderStyle = BorderStyle.FixedSingle;
+            pnlBotones.Controls.Add(btnLimpiar);
+            pnlBotones.Controls.Add(btnGenerar);
+            pnlBotones.Dock = DockStyle.Top;
+            pnlBotones.Location = new Point(0, 145);
+            pnlBotones.Name = "pnlBotones";
+            pnlBotones.Size = new Size(784, 65);
+            pnlBotones.TabIndex = 2;
+            // 
+            // btnGenerar
+            // 
+            btnGenerar.BackColor = Color.White;
+            btnGenerar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerar.ForeColor = Color.Black;
+            btnGenerar.Location = new Point(20, 15);
+            btnGenerar.Name = "btnGenerar";
+            btnGenerar.Size = new Size(110, 35);
+            btnGenerar.TabIndex = 1;
+            btnGenerar.Text = "GENERAR";
+            btnGenerar.UseVisualStyleBackColor = false;
+            btnGenerar.Click += btnGenerar_Click;
+            // 
+            // btnLimpiar
+            // 
+            btnLimpiar.BackColor = Color.White;
+            btnLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLimpiar.ForeColor = Color.Black;
+            btnLimpiar.Location = new Point(145, 15);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(110, 35);
+            btnLimpiar.TabIndex = 2;
+            btnLimpiar.Text = "LIMPIAR";
+            btnLimpiar.UseVisualStyleBackColor = false;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
+            // dgvReportes
+            // 
+            dgvReportes.AllowUserToAddRows = false;
+            dgvReportes.AllowUserToDeleteRows = false;
+            dgvReportes.AllowUserToResizeColumns = false;
+            dgvReportes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvReportes.BackgroundColor = Color.White;
+            dgvReportes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvReportes.Dock = DockStyle.Fill;
+            dgvReportes.Location = new Point(0, 210);
+            dgvReportes.MultiSelect = false;
+            dgvReportes.Name = "dgvReportes";
+            dgvReportes.ReadOnly = true;
+            dgvReportes.RowHeadersVisible = false;
+            dgvReportes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvReportes.Size = new Size(784, 201);
+            dgvReportes.TabIndex = 3;
+            // 
+            // FrmReportes
+            // 
+            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(784, 411);
+            Controls.Add(dgvReportes);
+            Controls.Add(pnlBotones);
+            Controls.Add(pnlFiltros);
+            Controls.Add(pnlEncabezado);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "FrmReportes";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Gestion de Reportes";
+            Load += FrmReportes_Load;
+            pnlEncabezado.ResumeLayout(false);
+            pnlEncabezado.PerformLayout();
+            pnlFiltros.ResumeLayout(false);
+            pnlFiltros.PerformLayout();
+            pnlBotones.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvReportes).EndInit();
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel pnlEncabezado;
+        private Label lblTitulo;
+        private Panel pnlFiltros;
+        private ComboBox cmbTipoReporte;
+        private Label lblTipoReporte;
+        private Panel pnlBotones;
+        private Button btnLimpiar;
+        private Button btnGenerar;
+        private DataGridView dgvReportes;
     }
 }

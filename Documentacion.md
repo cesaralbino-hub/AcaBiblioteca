@@ -8,11 +8,11 @@
 **Asignatura:** Programación Avanzada  
 **Grupo:** 54465  
 **Trabajo:** Actividad de Construcción Aplicada (ACA) — Sistema de Gestión de Biblioteca  
-**Estudiante:** Cesar Augusto Albino Vargas  
-**Docente:** Veronica Castro  
+**Estudiante:** César Augusto Albino Vargas  
+**Docente:** Verónica Castro  
 **Año:** 2026
 
-<!-- PENDIENTE: Confirmar ciudad, fecha exacta de entrega y tildes/nombres oficiales tal como figuran en la plataforma académica. -->
+<!-- PENDIENTE: Confirmar ciudad, fecha exacta de entrega y escritura oficial de nombres en la plataforma académica. -->
 
 ---
 
@@ -38,7 +38,7 @@
 
 ## 1. Introducción
 
-AcaBiblioteca es una aplicación de escritorio académica para administrar información básica de una biblioteca. Se desarrolló en C# mediante Windows Forms, utilizando Visual Studio 2026 y SQL Server LocalDB como sistema de almacenamiento. La interfaz permite gestionar libros, autores, editoriales y usuarios mediante operaciones de creación, consulta, actualización y eliminación (CRUD).
+AcaBiblioteca es una aplicación de escritorio académica para administrar información básica de una biblioteca. Se desarrolló en C# mediante Windows Forms, utilizando Visual Studio 2026 y SQL Server LocalDB como sistema de almacenamiento. La interfaz permite gestionar libros, autores, editoriales y usuarios mediante operaciones de creación, consulta, actualización y eliminación (CRUD). También incluye registro y devolución de préstamos, actualización de existencias y consultas de reportes.
 
 El proyecto integra formularios gráficos, programación orientada a objetos, eventos, validaciones, consultas SQL parametrizadas y conexión a una base de datos relacional. Su documentación se limita a las funciones desarrolladas y a los resultados efectivamente observados.
 
@@ -56,6 +56,8 @@ Desarrollar una aplicación de escritorio para la gestión básica de una biblio
 - Relacionar libros con autores y editoriales existentes.
 - Validar datos obligatorios y presentar mensajes al usuario.
 - Centralizar la creación de conexiones a la base de datos.
+- Registrar préstamos y devoluciones, manteniendo las existencias de libros.
+- Generar consultas de préstamos activos, préstamos devueltos e inventario de libros.
 - Comprobar el funcionamiento mediante pruebas manuales.
 - Gestionar versiones del código con Git y GitHub.
 
@@ -63,46 +65,47 @@ Desarrollar una aplicación de escritorio para la gestión básica de una biblio
 
 ### 3.1 Problema
 
-La administración de registros bibliográficos requiere organizar datos y facilitar su consulta y modificación. El acceso directo a las tablas mediante instrucciones SQL no constituye una interfaz adecuada para un usuario general. Como ejercicio académico, se propone una aplicación que centralice las operaciones básicas de mantenimiento de información.
+La administración de registros bibliográficos y de circulación de libros requiere organizar información, mantener las existencias actualizadas y facilitar las consultas. La interacción directa con tablas SQL no constituye una interfaz adecuada para el usuario general. El proyecto propone un sistema académico de escritorio que centraliza esas operaciones.
 
 ### 3.2 Justificación
 
-El desarrollo permite aplicar conocimientos de interfaces gráficas, eventos, programación orientada a objetos, persistencia relacional y control de errores. La base de datos facilita el almacenamiento estructurado y los formularios proporcionan una interacción más sencilla con la información.
+El desarrollo permite aplicar interfaces gráficas, programación orientada a objetos, manejo de eventos, persistencia relacional, consultas parametrizadas, validaciones y control de errores.
 
 ### 3.3 Alcance implementado
 
-- **Libros:** registro, listado, búsqueda por ISBN, edición y eliminación; selección de autor y editorial.
-- **Autores:** registro, listado, edición y eliminación.
-- **Editoriales:** formulario y código CRUD desarrollados; pruebas funcionales con base de datos aún por registrar.
-- **Usuarios:** registro, listado, edición y eliminación.
+- **Libros:** registro, consulta, búsqueda por ISBN, edición y eliminación, con selección de autor y editorial.
+- **Autores, editoriales y usuarios:** formularios de consulta y mantenimiento CRUD.
+- **Préstamos:** selección de usuario y libro, registro de préstamo, consulta, edición y eliminación; manejo de fecha de devolución opcional y estado del préstamo.
+- **Devoluciones:** actualización de un préstamo a estado `Devuelto` y restitución de existencias del libro; se comprobó mediante SQL en una prueba.
+- **Reportes:** préstamos activos, préstamos devueltos e inventario de libros; generación y limpieza de resultados.
 - **Navegación:** menú principal y apertura de formularios en el panel central.
 
-La aplicación es un prototipo académico, no un sistema desplegado en una biblioteca real. No se atribuyen funcionalidades de autenticación, multas, reservas ni exportaciones que no hayan sido desarrolladas.
+El sistema es un prototipo académico. No incluye autenticación, reservas, multas ni exportación de reportes.
 
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Revisar las indicaciones de la docente sobre FrmPrestamos y FrmReportes. Incorporar aquí únicamente las funciones que se implementen y prueben. -->
+<!-- PENDIENTE: Verificar que las pruebas de eliminación de préstamos y el comportamiento de existencias en todos los escenarios estén registradas antes de atribuirles cobertura completa. -->
 
 ## 4. Análisis de requerimientos
 
 ### 4.1 Actor
 
-**Usuario de la aplicación:** persona que utiliza el menú y los formularios para administrar los registros. No se ha implementado autenticación ni separación de permisos por roles.
+**Operador de la biblioteca:** utiliza el menú y los formularios para administrar registros, préstamos y consultas. No se implementaron cuentas de acceso ni permisos diferenciados.
 
 ### 4.2 Requerimientos funcionales
 
 | Código | Requerimiento | Descripción |
 |---|---|---|
-| RF01 | Gestión de libros | Registrar, consultar, editar y eliminar libros. |
-| RF02 | Búsqueda por ISBN | Localizar libros a partir del ISBN ingresado. |
-| RF03 | Gestión de autores | Registrar, consultar, editar y eliminar autores. |
-| RF04 | Gestión de editoriales | Disponer de operaciones CRUD para editoriales; pruebas pendientes. |
-| RF05 | Gestión de usuarios | Registrar, consultar, editar y eliminar usuarios. |
-| RF06 | Visualización | Mostrar registros mediante `DataGridView`. |
-| RF07 | Validación | Comprobar campos obligatorios antes de operaciones de escritura. |
-| RF08 | Selección | Recuperar datos de registros seleccionados para su edición. |
-| RF09 | Confirmación | Solicitar confirmación antes de eliminar. |
-| RF10 | Navegación | Abrir los formularios desde el menú principal. |
-| RF11 | Relaciones | Seleccionar autor y editorial al registrar libros. |
-| RF12 | Persistencia | Consultar y modificar datos en SQL Server LocalDB. |
+| RF01 | Gestionar libros | Registrar, consultar, buscar por ISBN, editar y eliminar libros. |
+| RF02 | Gestionar autores | Registrar, consultar, editar y eliminar autores. |
+| RF03 | Gestionar editoriales | Registrar, consultar, editar y eliminar editoriales. |
+| RF04 | Gestionar usuarios | Registrar, consultar, editar y eliminar usuarios. |
+| RF05 | Registrar préstamos | Asociar un usuario con un libro y registrar la fecha del préstamo. |
+| RF06 | Gestionar devoluciones | Registrar fecha de devolución, estado `Devuelto` y actualizar existencias. |
+| RF07 | Consultar préstamos | Visualizar préstamos y sus estados en una tabla. |
+| RF08 | Generar reportes | Consultar préstamos activos, préstamos devueltos e inventario. |
+| RF09 | Validar información | Comprobar campos requeridos y fechas según las reglas implementadas. |
+| RF10 | Navegar | Acceder a los formularios desde el menú principal. |
+| RF11 | Mantener relaciones | Relacionar libros con autores/editoriales y préstamos con usuarios/libros. |
+| RF12 | Persistir datos | Ejecutar consultas y modificaciones en SQL Server LocalDB. |
 
 ### 4.3 Requerimientos no funcionales
 
@@ -110,88 +113,103 @@ La aplicación es un prototipo académico, no un sistema desplegado en una bibli
 |---|---|---|
 | RNF01 | Plataforma | Aplicación de escritorio para Windows. |
 | RNF02 | Tecnologías | C#, Windows Forms y Visual Studio 2026. |
-| RNF03 | Almacenamiento | Base de datos SQL Server LocalDB. |
-| RNF04 | Acceso a datos | Biblioteca `Microsoft.Data.SqlClient`. |
-| RNF05 | Usabilidad | Formularios con etiquetas, botones y tablas. |
-| RNF06 | Integridad | Claves primarias y foráneas en la base de datos. |
-| RNF07 | Seguridad de consultas | Parámetros SQL para valores suministrados por el usuario. |
-| RNF08 | Organización | Formularios y clase reutilizable de conexión. |
-| RNF09 | Control de versiones | Repositorio Git y GitHub. |
+| RNF03 | Almacenamiento | SQL Server LocalDB. |
+| RNF04 | Acceso a datos | `Microsoft.Data.SqlClient` y clase `Conexion`. |
+| RNF05 | Usabilidad | Etiquetas, botones, listas desplegables y `DataGridView`. |
+| RNF06 | Integridad | Claves primarias, foráneas y restricciones relacionales. |
+| RNF07 | Consultas seguras | Uso de parámetros SQL para valores ingresados. |
+| RNF08 | Control de versiones | Git, GitHub y GitHub Desktop. |
 
-### 4.4 Reglas aplicadas
+### 4.4 Reglas de negocio observadas
 
-- El ISBN identifica los registros de libros.
-- Los libros se relacionan con autores y editoriales registrados.
-- Los formularios validan campos obligatorios antes de guardar o editar.
-- La eliminación solicita confirmación y está sujeta a las restricciones de integridad referencial.
-- Los cambios realizados correctamente se reflejan en las tablas de consulta.
+- El ISBN identifica cada libro.
+- Los libros se asocian con autores y editoriales.
+- Un préstamo se vincula con un usuario y un ISBN.
+- La fecha de devolución admite `NULL` para préstamos activos.
+- Los estados utilizados son `Prestado` y `Devuelto`.
+- Se comprobó que registrar un préstamo reduce las existencias y registrar su devolución las restituye.
+- Las operaciones CRUD utilizan los controles y validaciones del formulario.
+
+### 4.5 Diagrama de referencia de la docente
+
+![Análisis de requerimientos proporcionado por la docente](imagenes/requerimientos.png)
+
+*Figura 1. Análisis de requerimientos suministrado por la docente como material de apoyo.*
+
+**Aclaración:** la figura describe una propuesta más amplia e incluye categorías independientes, multas y otros requisitos no implementados. La tabla de requerimientos anterior corresponde al alcance real de AcaBiblioteca.
 
 ## 5. Casos de uso
 
-### 5.1 Diagrama funcional simplificado
+### 5.1 Diagrama de referencia
 
-```mermaid
-flowchart LR
-    U[Usuario]
-    U --- L([Gestionar libros])
-    U --- B([Buscar por ISBN])
-    U --- A([Gestionar autores])
-    U --- E([Gestionar editoriales])
-    U --- S([Gestionar usuarios])
-    U --- N([Navegar entre formularios])
-```
+![Diagrama de casos de uso de referencia](imagenes/casos-uso.png)
 
-### 5.2 Descripción
+*Figura 2. Diagrama de casos de uso suministrado por la docente.*
 
-| Código | Caso de uso | Acción principal | Resultado esperado |
-|---|---|---|---|
-| CU01 | Registrar libro | Completar datos y seleccionar Guardar. | Nuevo libro almacenado. |
-| CU02 | Buscar libro | Ingresar ISBN y seleccionar Buscar. | Registro correspondiente consultado. |
-| CU03 | Editar libro | Seleccionar registro, modificar datos y editar. | Información actualizada. |
-| CU04 | Eliminar libro | Seleccionar registro y confirmar. | Eliminación permitida por las relaciones de datos. |
-| CU05 | Gestionar autores | Registrar, consultar, editar o eliminar. | Registros de autores actualizados. |
-| CU06 | Gestionar editoriales | Registrar, consultar, editar o eliminar. | Funciones desarrolladas; prueba pendiente. |
-| CU07 | Gestionar usuarios | Registrar, consultar, editar o eliminar. | Registros de usuarios actualizados. |
-| CU08 | Navegar | Elegir opción del menú principal. | Formulario abierto en el área central. |
+**Alcance:** los casos de multas, cálculo de retrasos, categorías independientes y otros procesos de la figura no se atribuyen a la aplicación implementada.
 
-### 5.3 Ejemplo de flujo: registrar un libro
+### 5.2 Casos de uso del sistema desarrollado
 
-1. El usuario abre **Libros**.
-2. Ingresa ISBN, título y demás datos solicitados.
-3. Selecciona autor y editorial.
-4. Presiona **Guardar**.
-5. La aplicación valida la información, ejecuta la consulta parametrizada y actualiza el listado cuando la operación se completa.
+| Código | Caso de uso | Resultado esperado |
+|---|---|---|
+| CU01 | Registrar libro | Libro almacenado y visible en el listado. |
+| CU02 | Buscar libro por ISBN | Se muestra el libro correspondiente. |
+| CU03 | Editar o eliminar libro | Se modifica o elimina si las restricciones lo permiten. |
+| CU04 | Gestionar autores | Se realizan operaciones de mantenimiento. |
+| CU05 | Gestionar editoriales | Se realizan operaciones de mantenimiento. |
+| CU06 | Gestionar usuarios | Se realizan operaciones de mantenimiento. |
+| CU07 | Registrar préstamo | Se crea el préstamo y se actualizan existencias. |
+| CU08 | Registrar devolución | El préstamo queda `Devuelto` y se restituye una existencia. |
+| CU09 | Consultar préstamos activos | Se muestran préstamos con estado `Prestado`. |
+| CU10 | Consultar préstamos devueltos | Se muestran préstamos con estado `Devuelto`. |
+| CU11 | Consultar inventario | Se muestran libros, autores, editoriales y existencias. |
+| CU12 | Limpiar reporte | Se vacía la consulta visualizada. |
 
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Añadir casos de uso de Préstamos y Reportes solo si se implementan. -->
+### 5.3 Flujo resumido de préstamo y devolución
+
+1. El operador abre **Préstamos** y selecciona un usuario y un libro.
+2. Indica la fecha del préstamo y deja sin marcar la fecha de devolución cuando el libro se entrega al usuario.
+3. Presiona **Guardar**; la aplicación registra el préstamo y descuenta una existencia.
+4. Al devolver el libro, selecciona el préstamo, marca la fecha de devolución y presiona **Editar**.
+5. La aplicación actualiza el estado a `Devuelto` y restituye la existencia; este resultado se verificó en la base de datos.
 
 ## 6. Diseño de clases
 
-### 6.1 Clases principales
+### 6.1 Diagrama de referencia proporcionado por la docente
+
+![Diagrama de clases de referencia](imagenes/diagrama-clases.png)
+
+*Figura 3. Diagrama de clases suministrado por la docente como guía académica.*
+
+**Diferencias:** la figura incluye clases `Categoria`, `DetallePrestamo` y `Devolucion`, así como métodos para multas. Esas clases no forman parte de la implementación actual, que trabaja con cinco tablas y formularios Windows Forms.
+
+### 6.2 Clases principales implementadas
 
 | Clase | Responsabilidad |
 |---|---|
-| `FrmPrincipal` | Presentar menú y cargar formularios en `PnlContenido`. |
-| `FrmInicio` | Mostrar la pantalla inicial. |
-| `FrmLibros` | Gestionar libros y búsqueda por ISBN. |
-| `FrmAutores` | Gestionar autores. |
-| `FrmEditoriales` | Gestionar editoriales. |
-| `FrmUsuarios` | Gestionar usuarios. |
-| `Conexion` | Crear conexiones a SQL Server LocalDB mediante `obtenerConexion()`. |
+| `FrmPrincipal` | Menú principal y apertura de formularios en `PnlContenido`. |
+| `FrmInicio` | Pantalla inicial. |
+| `FrmLibros` | CRUD de libros y búsqueda por ISBN. |
+| `FrmAutores` | CRUD de autores. |
+| `FrmEditoriales` | CRUD de editoriales. |
+| `FrmUsuarios` | CRUD de usuarios. |
+| `FrmPrestamos` | Registro, edición, eliminación y consulta de préstamos y devoluciones. |
+| `FrmReportes` | Consultas de préstamos activos, devueltos e inventario. |
+| `Conexion` | Obtención de conexión SQL mediante `obtenerConexion()`. |
 
-### 6.2 Diagrama de dependencias de clases
+### 6.3 Dependencias de la implementación
 
 ```mermaid
 classDiagram
-    class FrmPrincipal {
-      -abrir_formulario(Form formulario)
-    }
+    class FrmPrincipal
     class FrmInicio
     class FrmLibros
     class FrmAutores
     class FrmEditoriales
     class FrmUsuarios
+    class FrmPrestamos
+    class FrmReportes
     class Conexion {
-      -cadenaConexion : string
       +obtenerConexion() SqlConnection
     }
     FrmPrincipal ..> FrmInicio : abre
@@ -199,106 +217,153 @@ classDiagram
     FrmPrincipal ..> FrmAutores : abre
     FrmPrincipal ..> FrmEditoriales : abre
     FrmPrincipal ..> FrmUsuarios : abre
+    FrmPrincipal ..> FrmPrestamos : abre
+    FrmPrincipal ..> FrmReportes : abre
     FrmLibros ..> Conexion : utiliza
     FrmAutores ..> Conexion : utiliza
     FrmEditoriales ..> Conexion : utiliza
     FrmUsuarios ..> Conexion : utiliza
+    FrmPrestamos ..> Conexion : utiliza
+    FrmReportes ..> Conexion : utiliza
 ```
 
-El diagrama refleja las clases y dependencias conocidas, sin atribuir al proyecto controladores o repositorios independientes que no se hayan desarrollado.
-
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Incorporar métodos reales de FrmPrestamos y FrmReportes si se desarrollan; verificar nombres exactos de eventos y métodos en el código final. -->
+<!-- PENDIENTE: Revisar los nombres exactos de métodos y eventos en el código fuente antes de ampliar el diagrama UML con firmas. -->
 
 ## 7. Modelo de datos
 
-### 7.1 Tablas
+### 7.1 Base de datos implementada
 
-La base de datos académica `AcaBiblioteca` contiene cinco tablas: `Autores`, `Editoriales`, `Libros`, `Usuarios` y `Prestamos`. La existencia de la última tabla no implica que el módulo gráfico de préstamos esté terminado.
+La base de datos `AcaBiblioteca` en SQL Server LocalDB contiene cinco tablas: `Autores`, `Editoriales`, `Libros`, `Usuarios` y `Prestamos`. La categoría se almacena en el campo `Categoria` de `Libros`. La devolución se registra en `Prestamos` mediante fecha y estado, sin tabla independiente.
 
-### 7.2 Diagrama de relaciones verificadas en los módulos desarrollados
+### 7.2 Diagrama entidad-relación de la implementación
 
 ```mermaid
 erDiagram
-    Autores ||--o{ Libros : autor_de
-    Editoriales ||--o{ Libros : editorial_de
+    Autores ||--o{ Libros : escribe
+    Editoriales ||--o{ Libros : publica
+    Usuarios ||--o{ Prestamos : realiza
+    Libros ||--o{ Prestamos : participa
     Autores {
-      int Id_Autor PK
-      varchar Nombre
-      varchar Apellido
+        int Id_Autor PK
+        varchar Nombre
+        varchar Apellido
     }
     Editoriales {
-      int Id_Editorial PK
-      varchar Nombre
+        int Id_Editorial PK
+        varchar Nombre
     }
     Libros {
-      varchar ISBN PK
-      varchar Titulo
-      int Id_Autor FK
-      int Id_Editorial FK
-      varchar Categoria
-      int Anio
-      int Existencias
+        varchar ISBN PK
+        varchar Titulo
+        int Id_Autor FK
+        int Id_Editorial FK
+        varchar Categoria
+        int Anio
+        int Existencias
+    }
+    Usuarios {
+        int Id_Usuario PK
+        varchar Nombre
+        varchar Apellido
+        varchar Documento
+        varchar Telefono1
+        varchar Correo
+    }
+    Prestamos {
+        int Id_Prestamo PK
+        int Id_Usuario FK
+        varchar ISBN FK
+        date Fecha_Prestamo
+        date Fecha_Devolucion
+        varchar Estado
     }
 ```
 
-La tabla `Usuarios` se documenta en el diccionario de datos. No se dibujan todavía relaciones ni campos de `Prestamos` que no se hayan contrastado con su definición real.
+**Nota:** las relaciones representan el diseño relacional utilizado en el sistema. La verificación final de nombres, longitudes y restricciones debe realizarse contra el script SQL entregado.
 
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Consultar el esquema SQL real de Prestamos (columnas, tipos, PK, FK y relaciones) y ampliar el diagrama ER. -->
+<!-- PENDIENTE: Adjuntar captura del diagrama de base de datos o script SQL definitivo si la docente lo solicita. -->
 
 ## 8. Diccionario de datos
 
-Los nombres siguientes se basan en los campos utilizados y verificados durante el desarrollo. Los tipos exactos, longitudes, restricciones `NULL` y valores predeterminados deben cotejarse con el script SQL definitivo antes de la entrega.
+### 8.1 Diccionario de referencia de la docente
 
-### 8.1 Autores
+![Diccionario de datos de referencia](imagenes/diccionario-datos.png)
 
-| Campo | Función |
+*Figura 4. Diccionario de datos proporcionado por la docente.*
+
+**Aclaración:** contiene siete entidades y campos diferentes a nuestra base de datos; no representa el esquema implementado. El siguiente diccionario sí utiliza los nombres de las cinco tablas reales.
+
+### 8.2 Tabla `Autores`
+
+| Campo | Descripción |
 |---|---|
 | `Id_Autor` | Identificador principal del autor. |
-| `Nombre` | Nombre del autor. |
-| `Apellido` | Apellido del autor. |
+| `Nombre` | Nombre. |
+| `Apellido` | Apellido. |
 
-### 8.2 Editoriales
+### 8.3 Tabla `Editoriales`
 
-| Campo | Función |
+| Campo | Descripción |
 |---|---|
 | `Id_Editorial` | Identificador principal de la editorial. |
 | `Nombre` | Nombre de la editorial. |
 
-### 8.3 Libros
+### 8.4 Tabla `Libros`
 
-| Campo | Función |
+| Campo | Descripción |
 |---|---|
 | `ISBN` | Identificador del libro. |
-| `Titulo` | Título del libro. |
+| `Titulo` | Título. |
 | `Id_Autor` | Referencia al autor. |
 | `Id_Editorial` | Referencia a la editorial. |
-| `Categoria` | Categoría del libro. |
-| `Anio` | Año registrado. |
-| `Existencias` | Cantidad de ejemplares registrada. |
+| `Categoria` | Categoría o género. |
+| `Anio` | Año de publicación registrado. |
+| `Existencias` | Cantidad de ejemplares disponibles. |
 
-### 8.4 Usuarios
+### 8.5 Tabla `Usuarios`
 
-| Campo | Función |
+| Campo | Descripción |
 |---|---|
-| `Id_Usuario` | Identificador principal del usuario. |
-| `Nombre` | Nombre del usuario. |
-| `Apellido` | Apellido del usuario. |
+| `Id_Usuario` | Identificador principal. |
+| `Nombre` | Nombre. |
+| `Apellido` | Apellido. |
 | `Documento` | Documento de identificación. |
-| `Telefono1` | Teléfono almacenado; se muestra como `Telefono` mediante alias SQL. |
+| `Telefono1` | Teléfono; el formulario puede mostrarlo con alias `Telefono`. |
 | `Correo` | Correo electrónico. |
 
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Agregar diccionario de Prestamos con columnas y tipos obtenidos de SQL Server, sin suposiciones. -->
+### 8.6 Tabla `Prestamos`
+
+| Campo | Tipo SQL | Permite `NULL` | Descripción |
+|---|---|---|---|
+| `Id_Prestamo` | `int` | No | Identificador del préstamo. |
+| `Id_Usuario` | `int` | No | Usuario asociado. |
+| `ISBN` | `varchar` | No | Libro prestado. |
+| `Fecha_Prestamo` | `date` | No | Fecha del préstamo. |
+| `Fecha_Devolucion` | `date` | Sí | Fecha de devolución, opcional mientras está prestado. |
+| `Estado` | `varchar` | No | Estado del préstamo (`Prestado` o `Devuelto`). |
+
+Los tipos y la nulabilidad de `Prestamos` se comprobaron mediante una consulta al esquema SQL compartida durante el desarrollo. Las longitudes de los campos `varchar` y los tipos exactos de las demás tablas deben verificarse con el script definitivo.
+
+<!-- PENDIENTE: Completar tipo SQL, longitud, nulabilidad y restricciones de todas las columnas usando el script final. -->
 
 ## 9. Arquitectura e implementación
 
-### 9.1 Organización
+### 9.1 Arquitectura de referencia de la docente
 
-La aplicación utiliza formularios Windows Forms para la presentación y los eventos de interacción. Las operaciones SQL de los formularios emplean la clase `Conexion` del espacio de nombres `AcaBiblioteca.Datos`, que proporciona conexiones mediante el método `obtenerConexion()`. El motor de almacenamiento es SQL Server LocalDB.
+![Arquitectura del sistema de referencia](imagenes/arquitectura.png)
+
+*Figura 5. Arquitectura general suministrada por la docente.*
+
+La imagen describe una organización por capas propuesta para un sistema de biblioteca. **No debe interpretarse como prueba de que el proyecto implementa controladores, repositorios o un servidor remoto de base de datos.**
+
+### 9.2 Arquitectura utilizada en AcaBiblioteca
+
+La aplicación utiliza formularios Windows Forms que manejan eventos y ejecutan consultas SQL parametrizadas. La clase `Conexion`, ubicada en el proyecto, centraliza la creación de conexiones mediante `obtenerConexion()`. El almacenamiento utiliza SQL Server LocalDB.
 
 ```mermaid
 flowchart TD
     UI[FrmPrincipal y formularios Windows Forms]
-    SQL[Consultas SQL parametrizadas en los formularios]
+    SQL[Eventos y consultas SQL en formularios]
     C[Clase Conexion]
     DB[(SQL Server LocalDB - AcaBiblioteca)]
     UI --> SQL
@@ -306,115 +371,151 @@ flowchart TD
     C --> DB
 ```
 
-No se presenta como una arquitectura estricta de tres capas: la lógica de eventos y varias consultas SQL están implementadas dentro de los formularios.
+No se presenta como arquitectura estricta de tres capas, porque parte de la lógica de negocio y del acceso a datos se encuentra en los formularios.
 
-### 9.2 Herramientas
+### 9.3 Herramientas
 
-- C# y Windows Forms.
-- Visual Studio 2026.
-- SQL Server LocalDB.
-- `Microsoft.Data.SqlClient`.
-- Visual Studio Code para la documentación Markdown.
-- Git y GitHub para control de versiones.
+- Visual Studio 2026, C# y Windows Forms.
+- SQL Server LocalDB y `Microsoft.Data.SqlClient`.
+- Visual Studio Code para editar Markdown.
+- Git, GitHub y GitHub Desktop para versionamiento.
 
-### 9.3 Control de versiones
+### 9.4 Control de versiones
 
-El proyecto se administra en un repositorio GitHub y se sincroniza entre computadores mediante GitHub Desktop. Los cambios se guardan con **Commit** y se publican con **Push**; en el otro equipo se recuperan con **Fetch/Pull** antes de continuar el trabajo.
+El proyecto se mantiene en un repositorio GitHub y se sincroniza entre computadores mediante **Commit**, **Push**, **Fetch** y **Pull** en GitHub Desktop.
 
 ## 10. Módulos desarrollados
 
 ### 10.1 Libros — `FrmLibros`
 
-Dispone de controles para ISBN, título, autor, editorial, categoría, año y existencias. Incluye consulta tabular, búsqueda por ISBN y operaciones CRUD. La selección de autor y editorial se realiza mediante listas desplegables vinculadas a las tablas correspondientes.
+Formulario con ISBN, título, autor, editorial, categoría, año y existencias. Permite consulta, búsqueda por ISBN y operaciones CRUD. Los autores y editoriales se seleccionan desde listas desplegables.
 
 ### 10.2 Autores — `FrmAutores`
 
-Permite listar, registrar, editar y eliminar autores. Utiliza los campos Nombre y Apellido, una tabla `DataGridView` y botones para las operaciones principales.
+Formulario para consultar, registrar, editar y eliminar autores mediante Nombre, Apellido y tabla `DataGridView`.
 
 ### 10.3 Editoriales — `FrmEditoriales`
 
-Permite trabajar con el nombre de la editorial y contiene el código de consulta, registro, edición y eliminación. La prueba completa contra la base de datos aún debe registrarse.
+Formulario de consulta y mantenimiento de editoriales. Su listado fue observado en ejecución con datos provenientes de la base de datos.
 
 ### 10.4 Usuarios — `FrmUsuarios`
 
-Permite registrar, consultar, editar y eliminar usuarios. Incluye nombre, apellido, documento, teléfono y correo. La columna de base de datos `Telefono1` se presenta como `Telefono` en la consulta utilizada por el formulario.
+Formulario CRUD de usuarios con nombre, apellido, documento, teléfono y correo. La columna `Telefono1` se presenta como `Telefono` mediante alias en la consulta del formulario.
 
-### 10.5 Menú principal — `FrmPrincipal`
+### 10.5 Préstamos y devoluciones — `FrmPrestamos`
 
-Presenta las opciones de navegación y carga los formularios dentro del panel central. `FrmInicio` constituye la pantalla de entrada; no se documentan indicadores estadísticos que todavía no se hayan implementado.
+Incluye listas desplegables de usuario y libro, fecha de préstamo y fecha de devolución opcional, botones Nuevo, Guardar, Editar, Eliminar y Cancelar, y una tabla con identificador, usuario, ISBN, fechas y estado. Se probó el registro de un préstamo y su posterior devolución, verificando los cambios en `Prestamos` y en las existencias del libro.
 
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Incorporar aquí las descripciones de FrmPrestamos y FrmReportes solo después de programarlos y probarlos. -->
+### 10.6 Reportes — `FrmReportes`
+
+Permite seleccionar el tipo de reporte, **Generar** resultados y **Limpiar** la tabla. Se visualizaron correctamente tres consultas:
+
+1. **Préstamos activos:** registros en estado `Prestado`, con nombre del usuario y título del libro.
+2. **Préstamos devueltos:** registros en estado `Devuelto`, con fechas y datos asociados.
+3. **Inventario de libros:** ISBN, título, autor, editorial, categoría, año y existencias.
+
+### 10.7 Menú principal — `FrmPrincipal`
+
+Presenta las opciones Inicio, Libros, Usuarios, Autores, Editoriales, Préstamos, Reportes y Salir; los formularios se abren dentro del panel central.
 
 ## 11. Evidencias visuales
 
-Se deben insertar capturas obtenidas de la aplicación en ejecución, preferiblemente con registros de prueba y sin exponer información sensible. Las rutas relativas se actualizarán cuando las imágenes se agreguen al repositorio.
+Las figuras de la docente incluidas en las secciones 4, 5, 6, 8 y 9 son **material de referencia**, no capturas de la aplicación. Las capturas de la implementación deben agregarse por separado y corresponder al funcionamiento observado.
 
-<!-- PENDIENTE: Guardar captura del menú principal y colocar aquí: ![Menú principal](evidencias/menu-principal.png) -->
-<!-- PENDIENTE: Guardar captura de FrmLibros y colocar aquí: ![Gestión de libros](evidencias/libros.png) -->
-<!-- PENDIENTE: Guardar captura de FrmAutores y colocar aquí: ![Gestión de autores](evidencias/autores.png) -->
-<!-- PENDIENTE: Guardar captura de FrmEditoriales y colocar aquí: ![Gestión de editoriales](evidencias/editoriales.png) -->
-<!-- PENDIENTE: Guardar captura de FrmUsuarios y colocar aquí: ![Gestión de usuarios](evidencias/usuarios.png) -->
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Agregar capturas de préstamos y reportes si se implementan. -->
+<!-- PENDIENTE: Guardar capturas propias en la carpeta evidencias/ e insertar enlaces Markdown.
+![Menú principal](evidencias/menu-principal.png)
+![Gestión de libros](evidencias/libros.png)
+![Gestión de autores](evidencias/autores.png)
+![Gestión de editoriales](evidencias/editoriales.png)
+![Gestión de usuarios](evidencias/usuarios.png)
+![Gestión de préstamos](evidencias/prestamos.png)
+![Reporte de préstamos activos](evidencias/reportes-activos.png)
+![Reporte de préstamos devueltos](evidencias/reportes-devueltos.png)
+![Reporte de inventario](evidencias/reportes-inventario.png)
+-->
+
+<!-- PENDIENTE: Incorporar evidencia de consulta SQL que muestra disminución y restitución de existencias tras préstamo/devolución. -->
 
 ## 12. Pruebas funcionales
 
-Las pruebas se realizaron manualmente en un equipo con SQL Server LocalDB, utilizando registros de prueba. El desarrollo de algunos formularios se adelantó en un segundo equipo sin base de datos, por lo que compilar correctamente no se consideró equivalente a una prueba funcional.
+Las pruebas se realizaron manualmente en un equipo con SQL Server LocalDB. Se distingue entre compilación correcta, visualización del módulo y prueba completa de cada operación.
 
-| Módulo | Consulta | Guardar | Editar | Eliminar | Observación |
-|---|---|---|---|---|---|
-| Libros | Comprobado | Comprobado | Comprobado | Comprobado | También se verificó búsqueda por ISBN. |
-| Autores | Comprobado | Comprobado | Comprobado | Comprobado | Pruebas con registro temporal creado, editado y eliminado. |
-| Editoriales | Pendiente | Pendiente | Pendiente | Pendiente | Código implementado; falta registrar pruebas en PC con SQL Server. |
-| Usuarios | Comprobado | Comprobado | Comprobado | Comprobado | Se verificó registro y corrección de nombre de columna telefónica. |
+| Módulo o función | Resultado documentado | Evidencia observada |
+|---|---|---|
+| Libros — CRUD | Comprobado | Registro, consulta, edición y eliminación; búsqueda por ISBN. |
+| Autores — CRUD | Comprobado | Registro temporal, edición y eliminación. |
+| Usuarios — CRUD | Comprobado | Operaciones CRUD y corrección de columna telefónica. |
+| Editoriales — consulta | Comprobado | Listado de editoriales cargado desde la base de datos. |
+| Editoriales — guardar, editar y eliminar | Pendiente de consolidar | No se dispone aquí de evidencia completa de cada operación. |
+| Préstamos — registro | Comprobado | Mensaje de préstamo registrado y registro SQL generado. |
+| Préstamos — actualización/devolución | Comprobado | Mensaje de actualización, estado `Devuelto` y fecha registrada en SQL. |
+| Existencias — préstamo | Comprobado | Para el libro *1984*, las existencias pasaron de 4 a 3. |
+| Existencias — devolución | Comprobado | Para el mismo libro, las existencias regresaron de 3 a 4. |
+| Préstamos — eliminación | Pendiente de consolidar | No se incluye aquí una verificación final documentada. |
+| Reporte — préstamos activos | Comprobado | Tabla de préstamos en estado `Prestado`. |
+| Reporte — préstamos devueltos | Comprobado | Tabla de préstamos en estado `Devuelto`. |
+| Reporte — inventario | Comprobado | Tabla con ISBN, título, autor, editorial y existencias. |
+| Reportes — limpiar | Comprobado | Se vació la tabla de resultados. |
 
-**Criterio de aceptación:** la operación se considera comprobada cuando la aplicación muestra el resultado esperado y los datos reflejan el cambio correspondiente. Los resultados pendientes no se presentan como exitosos.
+### 12.1 Caso de prueba: préstamo y devolución de *1984*
 
-<!-- PENDIENTE: Ejecutar y registrar las cuatro pruebas de Editoriales; añadir fecha y capturas si se requieren. -->
-<!-- PENDIENTE: Incorporar pruebas de validaciones, restricciones de claves foráneas y mensajes de error únicamente cuando se ejecuten. -->
-<!-- PENDIENTE DESPUÉS DEL JUEVES: Agregar pruebas de Préstamos y Reportes si se implementan. -->
+1. Antes del préstamo, el libro con ISBN `9780451524935` tenía **4 existencias**.
+2. Se registró un préstamo para el usuario con identificador `1` y se verificó el registro `Id_Prestamo = 1002`, con estado `Prestado` y fecha de devolución `NULL`.
+3. Tras registrar el préstamo, las existencias quedaron en **3**.
+4. Se editó el préstamo para indicar devolución el **5 de noviembre de 2026**; SQL mostró estado `Devuelto`.
+5. La consulta posterior mostró **4 existencias**, confirmando la restitución de una unidad.
+6. Posteriormente, una consulta de verificación mostró que el préstamo de prueba ya no aparecía; se conserva como evidencia principal la comprobación previa de préstamo y devolución.
+
+### 12.2 Criterio de aceptación
+
+Se considera comprobada una función cuando el resultado es visible en la aplicación y, para las operaciones de escritura, coincide con los datos verificados en SQL Server. La compilación sin errores por sí sola no demuestra el funcionamiento de una operación.
+
+<!-- PENDIENTE: Adjuntar capturas y fechas de cada prueba; completar CRUD de Editoriales y eliminación de préstamos si se requiere documentar esas funciones como comprobadas. -->
 
 ## 13. Conclusiones
 
-El desarrollo de AcaBiblioteca permitió integrar interfaces Windows Forms con una base de datos SQL Server LocalDB y aplicar operaciones CRUD en varios módulos relacionados. Las pruebas realizadas en Libros, Autores y Usuarios evidencian la ejecución de operaciones de consulta y modificación de registros desde la interfaz gráfica.
+El desarrollo de AcaBiblioteca permitió aplicar C#, Windows Forms, eventos, consultas SQL y persistencia relacional en una aplicación de escritorio. Se implementaron formularios de mantenimiento para libros, autores, editoriales y usuarios, además de módulos de préstamos y reportes.
 
-La experiencia también mostró la importancia de comprobar los nombres reales de las columnas de SQL Server y de distinguir entre la compilación del código y su funcionamiento con una base de datos disponible. El control de versiones facilitó continuar el proyecto desde diferentes computadores.
+Las pruebas de préstamo y devolución mostraron que es posible mantener coherencia entre el estado del préstamo y las existencias del libro. Los reportes permitieron consultar préstamos activos, devoluciones e inventario con información relacionada de distintas tablas.
+
+El proyecto también evidenció la importancia de contrastar los nombres reales de las columnas, verificar las operaciones directamente en la base de datos y utilizar GitHub para mantener sincronizado el código entre computadores. Los diagramas proporcionados por la docente sirvieron como guía conceptual, mientras que la documentación de implementación se ajustó a los componentes realmente desarrollados.
 
 ## 14. Recomendaciones
 
-- Completar las pruebas funcionales pendientes de Editoriales.
-- Revisar el diseño de los botones y la presentación de los formularios para mejorar su legibilidad.
-- Mantener las consultas parametrizadas y las validaciones de campos.
-- Verificar los tipos y restricciones de las columnas contra el script SQL final.
-- Conservar versiones del proyecto mediante commits descriptivos en GitHub.
-- Actualizar esta documentación cuando se implementen nuevas funcionalidades.
+- Completar las evidencias de todas las operaciones CRUD y conservar capturas de las consultas SQL.
+- Revisar y registrar escenarios de error, como intentar prestar un libro sin existencias o eliminar registros relacionados.
+- Confirmar longitudes, tipos y restricciones de las tablas contra el script SQL definitivo.
+- Mantener las consultas parametrizadas, validaciones y mensajes claros.
+- Conservar commits descriptivos en GitHub y verificar la sincronización antes de trabajar en otro equipo.
+- Si el proyecto se amplía, considerar separar la lógica de negocio y acceso a datos de los formularios, sin atribuir esa separación a la versión actual.
 
 ## 15. Referencias y anexos
 
 ### 15.1 Referencias técnicas
 
-- Microsoft Learn. Documentación de C# y Windows Forms: <https://learn.microsoft.com/dotnet/desktop/winforms/>
-- Microsoft Learn. Documentación de SQL Server: <https://learn.microsoft.com/sql/sql-server/>
-- Microsoft Learn. Biblioteca `Microsoft.Data.SqlClient`: <https://learn.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server>
-- GitHub Docs. Documentación de GitHub: <https://docs.github.com/>
+- Microsoft Learn. Windows Forms: <https://learn.microsoft.com/dotnet/desktop/winforms/>
+- Microsoft Learn. SQL Server: <https://learn.microsoft.com/sql/sql-server/>
+- Microsoft Learn. `Microsoft.Data.SqlClient`: <https://learn.microsoft.com/sql/connect/ado-net/microsoft-ado-net-sql-server>
+- GitHub Docs: <https://docs.github.com/>
+- Castro, V. (2026). *Material de apoyo para el Sistema de Gestión de Biblioteca: análisis de requerimientos, casos de uso, diagrama de clases, arquitectura y diccionario de datos* [Material de clase proporcionado por la docente]. Programación Avanzada, CUN.
 
 ### 15.2 Repositorio del proyecto
 
 Repositorio GitHub: <https://github.com/cesaralbino-hub/AcaBiblioteca>  
 **Nota:** el repositorio es privado; su consulta requiere autorización.
 
-### 15.3 Anexos pendientes
+### 15.3 Material gráfico incorporado
 
-<!-- PENDIENTE: Agregar script SQL final de creación de tablas y relaciones, o indicar su ruta dentro del repositorio. -->
-<!-- PENDIENTE: Agregar capturas de pruebas y evidencia de commits de GitHub, si la docente las solicita. -->
-<!-- PENDIENTE: Revisar que las referencias técnicas utilizadas correspondan a fuentes efectivamente consultadas y añadir fecha de consulta si se requiere. -->
+Las cinco imágenes de referencia se encuentran en la carpeta `imagenes/`. Su inclusión responde a la orientación de la docente y no significa que todas las entidades, clases y funcionalidades de las figuras se hayan implementado.
+
+### 15.4 Anexos por completar
+
+<!-- PENDIENTE: Adjuntar o enlazar el script SQL final de creación de tablas y relaciones. -->
+<!-- PENDIENTE: Incorporar capturas reales de los formularios, reportes y pruebas SQL. -->
+<!-- PENDIENTE: Adjuntar evidencia de commits si la docente la solicita. -->
+<!-- PENDIENTE: Verificar datos de portada y formato final exigido por la docente. -->
 
 ---
 
-<!-- CONTROL DE EDICIÓN (NO VISIBLE EN VISTA PREVIA):
-1. Confirmar datos de portada y fecha de entrega.
-2. Verificar el esquema completo de SQL Server y actualizar tipos/relaciones.
-3. Completar pruebas y evidencias de Editoriales.
-4. Después de las indicaciones del jueves, implementar/documentar Préstamos y Reportes si corresponde.
-5. Incorporar capturas y anexos reales.
-6. Revisar documento y eliminar estos comentarios antes de la entrega definitiva, una vez resueltos.
--->
+<!-- CONTROL DE EDICIÓN: Revisar comentarios PENDIENTE antes de la entrega final. -->
+

@@ -42,16 +42,23 @@
             LblSubtitulo = new Label();
             lblTitulo = new Label();
             PnlSuperior = new Panel();
+            lblTituloPrincipal = new Label();
             PnlEstado = new Panel();
             PnlContenido = new Panel();
+            pnlInformacion = new FlowLayoutPanel();
+            lblInfoTitulo = new Label();
+            lblInfoAcademica = new Label();
             pnlMenu.SuspendLayout();
             PnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
+            PnlSuperior.SuspendLayout();
+            pnlInformacion.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMenu
             // 
             pnlMenu.BackColor = SystemColors.ButtonFace;
+            pnlMenu.Controls.Add(pnlInformacion);
             pnlMenu.Controls.Add(BtnSalir);
             pnlMenu.Controls.Add(BtnReportes);
             pnlMenu.Controls.Add(BtnPrestamos);
@@ -279,7 +286,7 @@
             LblSubtitulo.Name = "LblSubtitulo";
             LblSubtitulo.Size = new Size(143, 20);
             LblSubtitulo.TabIndex = 1;
-            LblSubtitulo.Text = "Sistema de Gestion";
+            LblSubtitulo.Text = "Sistema de Gestión";
             // 
             // lblTitulo
             // 
@@ -297,19 +304,33 @@
             // PnlSuperior
             // 
             PnlSuperior.BackColor = Color.OliveDrab;
+            PnlSuperior.Controls.Add(lblTituloPrincipal);
             PnlSuperior.Dock = DockStyle.Top;
             PnlSuperior.Location = new Point(260, 0);
             PnlSuperior.Name = "PnlSuperior";
             PnlSuperior.Size = new Size(1024, 100);
             PnlSuperior.TabIndex = 1;
             // 
+            // lblTituloPrincipal
+            // 
+            lblTituloPrincipal.AutoSize = true;
+            lblTituloPrincipal.BackColor = Color.Transparent;
+            lblTituloPrincipal.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloPrincipal.ForeColor = Color.White;
+            lblTituloPrincipal.Location = new Point(60, 34);
+            lblTituloPrincipal.Name = "lblTituloPrincipal";
+            lblTituloPrincipal.Size = new Size(590, 45);
+            lblTituloPrincipal.TabIndex = 0;
+            lblTituloPrincipal.Text = "SISTEMA DE GESTIÓN DE BIBLIOTECA";
+            lblTituloPrincipal.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // PnlEstado
             // 
-            PnlEstado.BackColor = SystemColors.ActiveBorder;
+            PnlEstado.BackColor = Color.OliveDrab;
             PnlEstado.Dock = DockStyle.Bottom;
-            PnlEstado.Location = new Point(260, 531);
+            PnlEstado.Location = new Point(260, 581);
             PnlEstado.Name = "PnlEstado";
-            PnlEstado.Size = new Size(1024, 80);
+            PnlEstado.Size = new Size(1024, 30);
             PnlEstado.TabIndex = 2;
             // 
             // PnlContenido
@@ -318,8 +339,42 @@
             PnlContenido.ForeColor = Color.Black;
             PnlContenido.Location = new Point(260, 100);
             PnlContenido.Name = "PnlContenido";
-            PnlContenido.Size = new Size(1024, 431);
+            PnlContenido.Size = new Size(1024, 481);
             PnlContenido.TabIndex = 3;
+            // 
+            // pnlInformacion
+            // 
+            pnlInformacion.BackColor = Color.WhiteSmoke;
+            pnlInformacion.BorderStyle = BorderStyle.FixedSingle;
+            pnlInformacion.Controls.Add(lblInfoTitulo);
+            pnlInformacion.Controls.Add(lblInfoAcademica);
+            pnlInformacion.Location = new Point(10, 380);
+            pnlInformacion.Name = "pnlInformacion";
+            pnlInformacion.Size = new Size(240, 160);
+            pnlInformacion.TabIndex = 9;
+            // 
+            // lblInfoTitulo
+            // 
+            lblInfoTitulo.BackColor = Color.Transparent;
+            lblInfoTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInfoTitulo.ForeColor = Color.OliveDrab;
+            lblInfoTitulo.Location = new Point(3, 0);
+            lblInfoTitulo.Name = "lblInfoTitulo";
+            lblInfoTitulo.Size = new Size(220, 30);
+            lblInfoTitulo.TabIndex = 0;
+            lblInfoTitulo.Text = "ACA BIBLIOTECA";
+            lblInfoTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblInfoAcademica
+            // 
+            lblInfoAcademica.BackColor = Color.Transparent;
+            lblInfoAcademica.ForeColor = Color.DimGray;
+            lblInfoAcademica.Location = new Point(3, 30);
+            lblInfoAcademica.Name = "lblInfoAcademica";
+            lblInfoAcademica.Size = new Size(220, 25);
+            lblInfoAcademica.TabIndex = 1;
+            lblInfoAcademica.Text = "Proyecto académico CUN";
+            lblInfoAcademica.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // FrmPrincipal
             // 
@@ -339,6 +394,9 @@
             PnlLogo.ResumeLayout(false);
             PnlLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
+            PnlSuperior.ResumeLayout(false);
+            PnlSuperior.PerformLayout();
+            pnlInformacion.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -360,5 +418,9 @@
         private FontAwesome.Sharp.IconButton BtnAutores;
         private FontAwesome.Sharp.IconButton BtnSalir;
         private FontAwesome.Sharp.IconButton BtnReportes;
+        private Label lblTituloPrincipal;
+        private FlowLayoutPanel pnlInformacion;
+        private Label lblInfoTitulo;
+        private Label lblInfoAcademica;
     }
 }
