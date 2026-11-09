@@ -11,6 +11,7 @@
 # Archivos temporales
 *.tmp
 *.log
+*.cache
 
 # Bases de datos locales
 *.mdf
@@ -19,3 +20,16 @@
 # Archivos de configuracion sensibles
 .env
 .env.*
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Paquetes locales de NuGet
+packages/
+*.nupkg
+
+# Archivos generados durante la compilacion
+[Bb]in/
+[Oo]bj/
