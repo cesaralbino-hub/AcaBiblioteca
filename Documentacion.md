@@ -79,7 +79,7 @@ El desarrollo permite aplicar interfaces gráficas, programación orientada a ob
 - **Reportes:** préstamos activos, préstamos devueltos e inventario de libros; generación y limpieza de resultados.
 - **Navegación:** menú principal y apertura de formularios en el panel central.
 
-El sistema es un prototipo académico. No incluye autenticación, reservas, multas ni exportación de reportes.
+El sistema es un prototipo. No incluye autenticación, reservas, multas ni exportación de reportes.
 
 ## 4. Análisis de requerimientos
 
@@ -127,12 +127,12 @@ El sistema es un prototipo académico. No incluye autenticación, reservas, mult
 - Se comprobó que registrar un préstamo reduce las existencias y registrar su devolución las restituye.
 - Las operaciones CRUD utilizan los controles y validaciones del formulario.
 
-### 4.5 Diagrama de referencia de la docente
+### 4.5 Diagrama de referencia
 
 
 ![Análisis de requerimientos proporcionado por la profesora](<Imagenes/Análisis De Requerimientos - Biblioteca.png>)    
 
-*Figura 1. Análisis de requerimientos suministrado por la docente como material de apoyo.*
+*Figura 1. Análisis de requerimientos suministrado por la profesora como material de apoyo.*
 
 **Aclaración:** la figura describe una propuesta más amplia e incluye categorías independientes, multas y otros requisitos no implementados. La tabla de requerimientos anterior corresponde al alcance real de AcaBiblioteca.
 
@@ -174,11 +174,11 @@ El sistema es un prototipo académico. No incluye autenticación, reservas, mult
 
 ## 6. Diseño de clases
 
-### 6.1 Diagrama de referencia proporcionado por la docente
+### 6.1 Diagrama de referencia 
 
 ![Diagrama de clases de referencia](<Imagenes/Diagrama De Clases - Biblioteca.png>)
 
-*Figura 3. Diagrama de clases suministrado por la docente como guía académica.*
+*Figura 3. Diagrama de clases suministrado por la profesora como guía académica.*
 
 **Diferencias:** la figura incluye clases `Categoria`, `DetallePrestamo` y `Devolucion`, así como métodos para multas. Esas clases no forman parte de la implementación actual, que trabaja con cinco tablas y formularios Windows Forms.
 
@@ -552,7 +552,6 @@ Las pruebas funcionales realizadas permitieron verificar el comportamiento de lo
 Asimismo, el proyecto fortaleció competencias relacionadas con la programación orientada a objetos, el manejo de eventos, la validación de datos, las consultas SQL, la depuración de errores y el control de versiones mediante Git y GitHub.
 
 En conclusión, AcaBiblioteca cumple con los objetivos establecidos para el alcance académico del proyecto y constituye una aplicación funcional que integra conocimientos de programación, diseño de interfaces y gestión de bases de datos.
-
 
 
 ## 14. Recomendaciones
