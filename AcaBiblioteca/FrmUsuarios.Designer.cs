@@ -42,11 +42,11 @@
             txtNombre = new TextBox();
             lblNombre = new Label();
             pnlBotones = new Panel();
-            btnCancelar = new Button();
-            btnEliminar = new Button();
-            btnEditar = new Button();
-            btnGuardar = new Button();
-            btnNuevo = new Button();
+            btnCancelar = new FontAwesome.Sharp.IconButton();
+            btnEliminar = new FontAwesome.Sharp.IconButton();
+            btnEditar = new FontAwesome.Sharp.IconButton();
+            btnGuardar = new FontAwesome.Sharp.IconButton();
+            btnNuevo = new FontAwesome.Sharp.IconButton();
             dgvUsuarios = new DataGridView();
             pnlEncabezado.SuspendLayout();
             pnlDatos.SuspendLayout();
@@ -136,7 +136,7 @@
             // 
             // txtDocumento
             // 
-            txtDocumento.Location = new Point(360, 25);
+            txtDocumento.Location = new Point(360, 22);
             txtDocumento.Margin = new Padding(2);
             txtDocumento.Name = "txtDocumento";
             txtDocumento.Size = new Size(173, 23);
@@ -146,7 +146,7 @@
             // 
             lblDocumento.AutoSize = true;
             lblDocumento.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblDocumento.Location = new Point(360, 7);
+            lblDocumento.Location = new Point(360, 4);
             lblDocumento.Margin = new Padding(2, 0, 2, 0);
             lblDocumento.Name = "lblDocumento";
             lblDocumento.Size = new Size(98, 19);
@@ -155,7 +155,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(189, 26);
+            txtApellido.Location = new Point(189, 23);
             txtApellido.Margin = new Padding(2);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(155, 23);
@@ -165,7 +165,7 @@
             // 
             lblApellido.AutoSize = true;
             lblApellido.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblApellido.Location = new Point(189, 7);
+            lblApellido.Location = new Point(189, 4);
             lblApellido.Margin = new Padding(2, 0, 2, 0);
             lblApellido.Name = "lblApellido";
             lblApellido.Size = new Size(82, 19);
@@ -174,7 +174,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(18, 26);
+            txtNombre.Location = new Point(18, 23);
             txtNombre.Margin = new Padding(2);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(155, 23);
@@ -184,7 +184,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(18, 7);
+            lblNombre.Location = new Point(18, 4);
             lblNombre.Margin = new Padding(2, 0, 2, 0);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(69, 19);
@@ -208,61 +208,86 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnCancelar.Location = new Point(520, 15);
-            btnCancelar.Margin = new Padding(2);
+            btnCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
+            btnCancelar.IconColor = Color.Black;
+            btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnCancelar.IconSize = 25;
+            btnCancelar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnCancelar.Location = new Point(539, 15);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(110, 35);
-            btnCancelar.TabIndex = 4;
+            btnCancelar.TabIndex = 9;
             btnCancelar.Text = "CANCELAR";
+            btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
             btnCancelar.Click += btnCancelar_Click;
             // 
             // btnEliminar
             // 
-            btnEliminar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEliminar.Location = new Point(395, 15);
-            btnEliminar.Margin = new Padding(2);
+            btnEliminar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            btnEliminar.IconColor = Color.Black;
+            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEliminar.IconSize = 25;
+            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEliminar.Location = new Point(423, 15);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(110, 35);
-            btnEliminar.TabIndex = 3;
+            btnEliminar.TabIndex = 8;
             btnEliminar.Text = "ELIMINAR";
+            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
             btnEliminar.UseVisualStyleBackColor = true;
-            btnEliminar.Click += btnEditar_Click;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
-            btnEditar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnEditar.Location = new Point(270, 15);
-            btnEditar.Margin = new Padding(2);
+            btnEditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditar.IconChar = FontAwesome.Sharp.IconChar.Pen;
+            btnEditar.IconColor = Color.Black;
+            btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnEditar.IconSize = 25;
+            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnEditar.Location = new Point(288, 15);
             btnEditar.Name = "btnEditar";
             btnEditar.Size = new Size(110, 35);
-            btnEditar.TabIndex = 2;
+            btnEditar.TabIndex = 7;
             btnEditar.Text = "EDITAR";
+            btnEditar.TextAlign = ContentAlignment.MiddleRight;
             btnEditar.UseVisualStyleBackColor = true;
             btnEditar.Click += btnEditar_Click;
             // 
             // btnGuardar
             // 
-            btnGuardar.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGuardar.Location = new Point(145, 15);
-            btnGuardar.Margin = new Padding(2);
+            btnGuardar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
+            btnGuardar.IconColor = Color.Black;
+            btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGuardar.IconSize = 25;
+            btnGuardar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnGuardar.Location = new Point(172, 15);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(110, 35);
-            btnGuardar.TabIndex = 1;
+            btnGuardar.TabIndex = 6;
             btnGuardar.Text = "GUARDAR";
+            btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
             // btnNuevo
             // 
-            btnNuevo.Font = new Font("Segoe UI", 10F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnNuevo.Location = new Point(20, 15);
-            btnNuevo.Margin = new Padding(2);
+            btnNuevo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnNuevo.IconChar = FontAwesome.Sharp.IconChar.Palette;
+            btnNuevo.IconColor = Color.Black;
+            btnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnNuevo.IconSize = 25;
+            btnNuevo.ImageAlign = ContentAlignment.MiddleLeft;
+            btnNuevo.Location = new Point(44, 15);
             btnNuevo.Name = "btnNuevo";
             btnNuevo.Size = new Size(110, 35);
-            btnNuevo.TabIndex = 0;
+            btnNuevo.TabIndex = 5;
             btnNuevo.Text = "NUEVO";
+            btnNuevo.TextAlign = ContentAlignment.MiddleRight;
             btnNuevo.UseVisualStyleBackColor = true;
             btnNuevo.Click += btnNuevo_Click;
             // 
@@ -326,11 +351,11 @@
         private TextBox txtCorreo;
         private Label lblCorreo;
         private Panel pnlBotones;
-        private Button btnNuevo;
-        private Button btnCancelar;
-        private Button btnEliminar;
-        private Button btnEditar;
-        private Button btnGuardar;
         private DataGridView dgvUsuarios;
+        private FontAwesome.Sharp.IconButton btnNuevo;
+        private FontAwesome.Sharp.IconButton btnGuardar;
+        private FontAwesome.Sharp.IconButton btnEditar;
+        private FontAwesome.Sharp.IconButton btnCancelar;
+        private FontAwesome.Sharp.IconButton btnEliminar;
     }
 }

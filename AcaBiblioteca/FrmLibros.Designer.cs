@@ -70,7 +70,7 @@
             PnlTitulo.Dock = DockStyle.Top;
             PnlTitulo.Location = new Point(0, 0);
             PnlTitulo.Name = "PnlTitulo";
-            PnlTitulo.Size = new Size(1350, 81);
+            PnlTitulo.Size = new Size(1350, 39);
             PnlTitulo.TabIndex = 0;
             // 
             // LblTitulo
@@ -78,7 +78,7 @@
             LblTitulo.AutoSize = true;
             LblTitulo.BackColor = Color.Transparent;
             LblTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            LblTitulo.Location = new Point(277, 21);
+            LblTitulo.Location = new Point(55, 5);
             LblTitulo.Name = "LblTitulo";
             LblTitulo.Size = new Size(243, 32);
             LblTitulo.TabIndex = 0;
@@ -91,7 +91,7 @@
             PnlBusqueda.Controls.Add(txtBuscarISBN);
             PnlBusqueda.Controls.Add(LblBuscar);
             PnlBusqueda.Dock = DockStyle.Top;
-            PnlBusqueda.Location = new Point(0, 81);
+            PnlBusqueda.Location = new Point(0, 39);
             PnlBusqueda.Name = "PnlBusqueda";
             PnlBusqueda.Size = new Size(1350, 55);
             PnlBusqueda.TabIndex = 1;
@@ -150,7 +150,7 @@
             PnlDatos.Controls.Add(LblIsbn);
             PnlDatos.Controls.Add(LblTutuloLib);
             PnlDatos.Dock = DockStyle.Top;
-            PnlDatos.Location = new Point(0, 136);
+            PnlDatos.Location = new Point(0, 94);
             PnlDatos.Name = "PnlDatos";
             PnlDatos.Size = new Size(1350, 229);
             PnlDatos.TabIndex = 2;
@@ -274,14 +274,15 @@
             PnlBotones.Controls.Add(btnGuardar);
             PnlBotones.Controls.Add(btnNuevo);
             PnlBotones.Dock = DockStyle.Top;
-            PnlBotones.Location = new Point(0, 365);
+            PnlBotones.Location = new Point(0, 323);
             PnlBotones.Name = "PnlBotones";
             PnlBotones.Size = new Size(1350, 53);
             PnlBotones.TabIndex = 3;
             // 
             // btnCancelar
             // 
-            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.X;
+            btnCancelar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnCancelar.IconChar = FontAwesome.Sharp.IconChar.XmarkCircle;
             btnCancelar.IconColor = Color.Black;
             btnCancelar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnCancelar.IconSize = 25;
@@ -297,6 +298,7 @@
             // 
             // btnEliminar
             // 
+            btnEliminar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
             btnEliminar.IconColor = Color.Black;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -313,6 +315,7 @@
             // 
             // btnEditar
             // 
+            btnEditar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
             btnEditar.IconColor = Color.Black;
             btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -329,6 +332,7 @@
             // 
             // btnGuardar
             // 
+            btnGuardar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
             btnGuardar.IconColor = Color.Black;
             btnGuardar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -345,6 +349,7 @@
             // 
             // btnNuevo
             // 
+            btnNuevo.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnNuevo.IconChar = FontAwesome.Sharp.IconChar.Palette;
             btnNuevo.IconColor = Color.Black;
             btnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -369,13 +374,13 @@
             dgvLibros.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvLibros.Dock = DockStyle.Fill;
             dgvLibros.EnableHeadersVisualStyles = false;
-            dgvLibros.Location = new Point(0, 418);
+            dgvLibros.Location = new Point(0, 376);
             dgvLibros.MultiSelect = false;
             dgvLibros.Name = "dgvLibros";
             dgvLibros.ReadOnly = true;
             dgvLibros.RowHeadersVisible = false;
             dgvLibros.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLibros.Size = new Size(1350, 324);
+            dgvLibros.Size = new Size(1350, 366);
             dgvLibros.TabIndex = 4;
             dgvLibros.CellClick += dgvLibros_CellClick;
             // 

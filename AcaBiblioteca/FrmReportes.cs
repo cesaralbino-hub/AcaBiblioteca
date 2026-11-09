@@ -33,7 +33,7 @@ namespace AcaBiblioteca
 
         private void btnGenerar_Click(object sender, EventArgs e)
         {
-            if (cmbTipoReporte.SelectedIndex == -1)
+           if (cmbTipoReporte.SelectedIndex == -1)
             {
                 MessageBox.Show(
                     "Seleccione un tipo de reporte.",

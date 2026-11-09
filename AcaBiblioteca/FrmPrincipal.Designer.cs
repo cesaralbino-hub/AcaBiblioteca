@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             pnlMenu = new Panel();
+            pnlInformacion = new FlowLayoutPanel();
+            lblInfoTitulo = new Label();
+            lblInfoAcademica = new Label();
+            lblInfoAsignatura = new Label();
+            lblInfoPrograma = new Label();
+            lblInfoAutor = new Label();
+            lblInfoAnio = new Label();
+            picBirrete = new FontAwesome.Sharp.IconPictureBox();
             BtnSalir = new FontAwesome.Sharp.IconButton();
             BtnReportes = new FontAwesome.Sharp.IconButton();
             BtnPrestamos = new FontAwesome.Sharp.IconButton();
@@ -45,14 +53,12 @@
             lblTituloPrincipal = new Label();
             PnlEstado = new Panel();
             PnlContenido = new Panel();
-            pnlInformacion = new FlowLayoutPanel();
-            lblInfoTitulo = new Label();
-            lblInfoAcademica = new Label();
             pnlMenu.SuspendLayout();
+            pnlInformacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)picBirrete).BeginInit();
             PnlLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).BeginInit();
             PnlSuperior.SuspendLayout();
-            pnlInformacion.SuspendLayout();
             SuspendLayout();
             // 
             // pnlMenu
@@ -73,6 +79,117 @@
             pnlMenu.Name = "pnlMenu";
             pnlMenu.Size = new Size(260, 611);
             pnlMenu.TabIndex = 0;
+            // 
+            // pnlInformacion
+            // 
+            pnlInformacion.BackColor = Color.WhiteSmoke;
+            pnlInformacion.BorderStyle = BorderStyle.FixedSingle;
+            pnlInformacion.Controls.Add(lblInfoTitulo);
+            pnlInformacion.Controls.Add(lblInfoAcademica);
+            pnlInformacion.Controls.Add(lblInfoAsignatura);
+            pnlInformacion.Controls.Add(lblInfoPrograma);
+            pnlInformacion.Controls.Add(picBirrete);
+            pnlInformacion.Controls.Add(lblInfoAutor);
+            pnlInformacion.Controls.Add(lblInfoAnio);
+            pnlInformacion.FlowDirection = FlowDirection.TopDown;
+            pnlInformacion.Location = new Point(12, 341);
+            pnlInformacion.Name = "pnlInformacion";
+            pnlInformacion.Size = new Size(240, 240);
+            pnlInformacion.TabIndex = 9;
+            pnlInformacion.WrapContents = false;
+            // 
+            // lblInfoTitulo
+            // 
+            lblInfoTitulo.AutoSize = true;
+            lblInfoTitulo.BackColor = Color.Transparent;
+            lblInfoTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInfoTitulo.ForeColor = Color.OliveDrab;
+            lblInfoTitulo.Location = new Point(30, 3);
+            lblInfoTitulo.Margin = new Padding(30, 3, 3, 3);
+            lblInfoTitulo.Name = "lblInfoTitulo";
+            lblInfoTitulo.Size = new Size(125, 21);
+            lblInfoTitulo.TabIndex = 0;
+            lblInfoTitulo.Text = "ACA BIBLIOTECA";
+            lblInfoTitulo.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblInfoAcademica
+            // 
+            lblInfoAcademica.AutoSize = true;
+            lblInfoAcademica.BackColor = Color.Transparent;
+            lblInfoAcademica.ForeColor = Color.DimGray;
+            lblInfoAcademica.Location = new Point(30, 30);
+            lblInfoAcademica.Margin = new Padding(30, 3, 3, 3);
+            lblInfoAcademica.Name = "lblInfoAcademica";
+            lblInfoAcademica.Size = new Size(143, 15);
+            lblInfoAcademica.TabIndex = 1;
+            lblInfoAcademica.Text = "Proyecto académico CUN";
+            lblInfoAcademica.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblInfoAsignatura
+            // 
+            lblInfoAsignatura.AutoSize = true;
+            lblInfoAsignatura.BackColor = Color.Transparent;
+            lblInfoAsignatura.ForeColor = Color.DimGray;
+            lblInfoAsignatura.Location = new Point(30, 56);
+            lblInfoAsignatura.Margin = new Padding(30, 8, 3, 3);
+            lblInfoAsignatura.Name = "lblInfoAsignatura";
+            lblInfoAsignatura.Size = new Size(136, 15);
+            lblInfoAsignatura.TabIndex = 2;
+            lblInfoAsignatura.Text = "Programación Avanzada";
+            // 
+            // lblInfoPrograma
+            // 
+            lblInfoPrograma.AutoSize = true;
+            lblInfoPrograma.BackColor = Color.Transparent;
+            lblInfoPrograma.ForeColor = Color.DimGray;
+            lblInfoPrograma.Location = new Point(30, 77);
+            lblInfoPrograma.Margin = new Padding(30, 3, 3, 3);
+            lblInfoPrograma.Name = "lblInfoPrograma";
+            lblInfoPrograma.Size = new Size(124, 15);
+            lblInfoPrograma.TabIndex = 3;
+            lblInfoPrograma.Text = "Ingeniería de Sistemas";
+            // 
+            // lblInfoAutor
+            // 
+            lblInfoAutor.AutoSize = true;
+            lblInfoAutor.BackColor = Color.Transparent;
+            lblInfoAutor.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInfoAutor.ForeColor = Color.DimGray;
+            lblInfoAutor.Location = new Point(15, 181);
+            lblInfoAutor.Margin = new Padding(15, 18, 3, 3);
+            lblInfoAutor.Name = "lblInfoAutor";
+            lblInfoAutor.Size = new Size(202, 13);
+            lblInfoAutor.TabIndex = 4;
+            lblInfoAutor.Text = "Desarrollado por: César Albino Vargas";
+            // 
+            // lblInfoAnio
+            // 
+            lblInfoAnio.AutoSize = true;
+            lblInfoAnio.BackColor = Color.Transparent;
+            lblInfoAnio.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblInfoAnio.ForeColor = Color.DimGray;
+            lblInfoAnio.Location = new Point(100, 200);
+            lblInfoAnio.Margin = new Padding(100, 3, 3, 3);
+            lblInfoAnio.Name = "lblInfoAnio";
+            lblInfoAnio.Size = new Size(31, 13);
+            lblInfoAnio.TabIndex = 5;
+            lblInfoAnio.Text = "2026";
+            // 
+            // picBirrete
+            // 
+            picBirrete.BackColor = Color.WhiteSmoke;
+            picBirrete.ForeColor = Color.OliveDrab;
+            picBirrete.IconChar = FontAwesome.Sharp.IconChar.UserGraduate;
+            picBirrete.IconColor = Color.OliveDrab;
+            picBirrete.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            picBirrete.IconSize = 55;
+            picBirrete.Location = new Point(90, 105);
+            picBirrete.Margin = new Padding(90, 10, 3, 3);
+            picBirrete.Name = "picBirrete";
+            picBirrete.Size = new Size(60, 55);
+            picBirrete.SizeMode = PictureBoxSizeMode.CenterImage;
+            picBirrete.TabIndex = 6;
+            picBirrete.TabStop = false;
             // 
             // BtnSalir
             // 
@@ -342,40 +459,6 @@
             PnlContenido.Size = new Size(1024, 481);
             PnlContenido.TabIndex = 3;
             // 
-            // pnlInformacion
-            // 
-            pnlInformacion.BackColor = Color.WhiteSmoke;
-            pnlInformacion.BorderStyle = BorderStyle.FixedSingle;
-            pnlInformacion.Controls.Add(lblInfoTitulo);
-            pnlInformacion.Controls.Add(lblInfoAcademica);
-            pnlInformacion.Location = new Point(10, 380);
-            pnlInformacion.Name = "pnlInformacion";
-            pnlInformacion.Size = new Size(240, 160);
-            pnlInformacion.TabIndex = 9;
-            // 
-            // lblInfoTitulo
-            // 
-            lblInfoTitulo.BackColor = Color.Transparent;
-            lblInfoTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblInfoTitulo.ForeColor = Color.OliveDrab;
-            lblInfoTitulo.Location = new Point(3, 0);
-            lblInfoTitulo.Name = "lblInfoTitulo";
-            lblInfoTitulo.Size = new Size(220, 30);
-            lblInfoTitulo.TabIndex = 0;
-            lblInfoTitulo.Text = "ACA BIBLIOTECA";
-            lblInfoTitulo.TextAlign = ContentAlignment.MiddleCenter;
-            // 
-            // lblInfoAcademica
-            // 
-            lblInfoAcademica.BackColor = Color.Transparent;
-            lblInfoAcademica.ForeColor = Color.DimGray;
-            lblInfoAcademica.Location = new Point(3, 30);
-            lblInfoAcademica.Name = "lblInfoAcademica";
-            lblInfoAcademica.Size = new Size(220, 25);
-            lblInfoAcademica.TabIndex = 1;
-            lblInfoAcademica.Text = "Proyecto académico CUN";
-            lblInfoAcademica.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // FrmPrincipal
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -391,12 +474,14 @@
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             pnlMenu.ResumeLayout(false);
+            pnlInformacion.ResumeLayout(false);
+            pnlInformacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)picBirrete).EndInit();
             PnlLogo.ResumeLayout(false);
             PnlLogo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PicLogo).EndInit();
             PnlSuperior.ResumeLayout(false);
             PnlSuperior.PerformLayout();
-            pnlInformacion.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -422,5 +507,10 @@
         private FlowLayoutPanel pnlInformacion;
         private Label lblInfoTitulo;
         private Label lblInfoAcademica;
+        private Label lblInfoAsignatura;
+        private Label lblInfoPrograma;
+        private Label lblInfoAutor;
+        private Label lblInfoAnio;
+        private FontAwesome.Sharp.IconPictureBox picBirrete;
     }
 }

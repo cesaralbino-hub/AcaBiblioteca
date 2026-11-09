@@ -31,11 +31,11 @@
             pnlEncabezado = new Panel();
             lblTitulo = new Label();
             pnlFiltros = new Panel();
-            lblTipoReporte = new Label();
             cmbTipoReporte = new ComboBox();
+            lblTipoReporte = new Label();
             pnlBotones = new Panel();
-            btnGenerar = new Button();
-            btnLimpiar = new Button();
+            btnLimpiar = new FontAwesome.Sharp.IconButton();
+            btnGenerar = new FontAwesome.Sharp.IconButton();
             dgvReportes = new DataGridView();
             pnlEncabezado.SuspendLayout();
             pnlFiltros.SuspendLayout();
@@ -77,6 +77,16 @@
             pnlFiltros.Size = new Size(784, 90);
             pnlFiltros.TabIndex = 1;
             // 
+            // cmbTipoReporte
+            // 
+            cmbTipoReporte.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTipoReporte.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            cmbTipoReporte.FormattingEnabled = true;
+            cmbTipoReporte.Location = new Point(25, 38);
+            cmbTipoReporte.Name = "cmbTipoReporte";
+            cmbTipoReporte.Size = new Size(350, 25);
+            cmbTipoReporte.TabIndex = 0;
+            // 
             // lblTipoReporte
             // 
             lblTipoReporte.AutoSize = true;
@@ -86,15 +96,6 @@
             lblTipoReporte.Size = new Size(111, 17);
             lblTipoReporte.TabIndex = 0;
             lblTipoReporte.Text = "Tipo de Reporte:";
-            // 
-            // cmbTipoReporte
-            // 
-            cmbTipoReporte.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            cmbTipoReporte.FormattingEnabled = true;
-            cmbTipoReporte.Location = new Point(25, 38);
-            cmbTipoReporte.Name = "cmbTipoReporte";
-            cmbTipoReporte.Size = new Size(350, 25);
-            cmbTipoReporte.TabIndex = 0;
             // 
             // pnlBotones
             // 
@@ -107,31 +108,39 @@
             pnlBotones.Size = new Size(784, 65);
             pnlBotones.TabIndex = 2;
             // 
+            // btnLimpiar
+            // 
+            btnLimpiar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLimpiar.IconChar = FontAwesome.Sharp.IconChar.Eraser;
+            btnLimpiar.IconColor = Color.Black;
+            btnLimpiar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnLimpiar.IconSize = 25;
+            btnLimpiar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnLimpiar.Location = new Point(162, 15);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(110, 35);
+            btnLimpiar.TabIndex = 4;
+            btnLimpiar.Text = "Limpiar";
+            btnLimpiar.TextAlign = ContentAlignment.MiddleRight;
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
+            // 
             // btnGenerar
             // 
-            btnGenerar.BackColor = Color.White;
-            btnGenerar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnGenerar.ForeColor = Color.Black;
+            btnGenerar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnGenerar.IconChar = FontAwesome.Sharp.IconChar.Eject;
+            btnGenerar.IconColor = Color.Black;
+            btnGenerar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            btnGenerar.IconSize = 25;
+            btnGenerar.ImageAlign = ContentAlignment.MiddleLeft;
             btnGenerar.Location = new Point(20, 15);
             btnGenerar.Name = "btnGenerar";
             btnGenerar.Size = new Size(110, 35);
-            btnGenerar.TabIndex = 1;
-            btnGenerar.Text = "GENERAR";
-            btnGenerar.UseVisualStyleBackColor = false;
+            btnGenerar.TabIndex = 3;
+            btnGenerar.Text = "Generar";
+            btnGenerar.TextAlign = ContentAlignment.MiddleRight;
+            btnGenerar.UseVisualStyleBackColor = true;
             btnGenerar.Click += btnGenerar_Click;
-            // 
-            // btnLimpiar
-            // 
-            btnLimpiar.BackColor = Color.White;
-            btnLimpiar.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnLimpiar.ForeColor = Color.Black;
-            btnLimpiar.Location = new Point(145, 15);
-            btnLimpiar.Name = "btnLimpiar";
-            btnLimpiar.Size = new Size(110, 35);
-            btnLimpiar.TabIndex = 2;
-            btnLimpiar.Text = "LIMPIAR";
-            btnLimpiar.UseVisualStyleBackColor = false;
-            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // dgvReportes
             // 
@@ -184,8 +193,8 @@
         private ComboBox cmbTipoReporte;
         private Label lblTipoReporte;
         private Panel pnlBotones;
-        private Button btnLimpiar;
-        private Button btnGenerar;
         private DataGridView dgvReportes;
+        private FontAwesome.Sharp.IconButton btnGenerar;
+        private FontAwesome.Sharp.IconButton btnLimpiar;
     }
 }
